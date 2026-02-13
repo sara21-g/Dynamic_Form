@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Contact Manager Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>📇 Contact Manager Pro</h1>
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number" id="totalContacts">0</div>
+            <div class="stat-label">Total Contacts</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="favoriteCount">0</div>
+            <div class="stat-label">Favorites</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="controls">
+        <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+        <button class="export-btn" id="exportBtn">📥 Export</button>
+        <button class="import-btn" id="importBtn">📤 Import</button>
+        <button class="clear-all-btn" id="clearAllBtn">🗑️ Clear All</button>
+        <input type="file" id="importFile" accept=".json">
+    </div>
+
+    <div class="search-container">
+        <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search contacts by name, email, or phone...">
+        <span class="search-icon">🔍</span>
+    </div>
+
+    <div class="form-section">
+        <h2>✨ Add New Contact</h2>
+        <form action="https://formspree.io/f/xgolalpn" method="POST">
+            <div class="form-grid">
+                <input type="text" id="name" name="name" placeholder="Full Name *">
+                <input type="email" id="email" name="email" placeholder="Email Address *">
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number *">
+                <input type="text" id="company" name="company" placeholder="Company (Optional)">
+                <textarea id="notes" name="notes" placeholder="Notes (Optional)"></textarea>
+            </div>
+            <div class="button-group">
+                <button class="add-btn" id="addBtn">➕ Add Contact</button>
+                <button class="reset-btn" id="resetBtn">🔄 Reset Form</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="contact-list">
+        <h3>
+            <span>📋 Contacts List</span>
+            <div class="sort-controls">
+                <button class="sort-btn" id="sortNameBtn">Sort A-Z</button>
+                <button class="sort-btn" id="sortDateBtn">Sort by Date</button>
+            </div>
+        </h3>
+        <div id="contactList"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
