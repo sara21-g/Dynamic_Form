@@ -81,6 +81,33 @@ function validatePhone(phone) {
     return re.test(phone.replace(/\D/g, ''));
 }
 
+// Formspree Integration
+async function sendToFormspree(contactData) {
+    try {
+        const response = await fetch("https://formspree.io/f/xgolalpn", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: contactData.name,
+                email: contactData.email,
+                phone: contactData.phone,
+                company: contactData.company || "N/A",
+                notes: contactData.notes || "N/A",
+                timestamp: contactData.createdAt
+            })
+        });
+        
+        if (response.ok) {
+            console.log("Contact sent to email successfully");
+        }
+    } catch (error) {
+        console.error("Error sending to Formspree:", error);
+        // Don't show error to user - contact is still saved locally
+    }
+}
+
 // Contact Operations
 function addOrUpdateContact() {
     const name = nameInput.value.trim();
@@ -119,6 +146,8 @@ function addOrUpdateContact() {
     if (editIndex === null) {
         contacts.push(contactData);
         showNotification("Contact added successfully!", "success");
+        // Send new contact to Formspree
+        sendToFormspree(contactData);
     } else {
         contacts[editIndex] = contactData;
         showNotification("Contact updated successfully!", "success");
