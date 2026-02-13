@@ -38,19 +38,17 @@
 
     <div class="form-section">
         <h2>✨ Add New Contact</h2>
-        <form action="https://formspree.io/f/xgolalpn" method="POST">
-            <div class="form-grid">
-                <input type="text" id="name" name="name" placeholder="Full Name *">
-                <input type="email" id="email" name="email" placeholder="Email Address *">
-                <input type="tel" id="phone" name="phone" placeholder="Phone Number *">
-                <input type="text" id="company" name="company" placeholder="Company (Optional)">
-                <textarea id="notes" name="notes" placeholder="Notes (Optional)"></textarea>
-            </div>
-            <div class="button-group">
-                <button class="add-btn" id="addBtn">➕ Add Contact</button>
-                <button class="reset-btn" id="resetBtn">🔄 Reset Form</button>
-            </div>
-        </form>
+        <div class="form-grid">
+            <input type="text" id="name" placeholder="Full Name *">
+            <input type="email" id="email" placeholder="Email Address *">
+            <input type="tel" id="phone" placeholder="Phone Number *">
+            <input type="text" id="company" placeholder="Company (Optional)">
+            <textarea id="notes" placeholder="Notes (Optional)"></textarea>
+        </div>
+        <div class="button-group">
+            <button class="add-btn" id="addBtn">➕ Add Contact</button>
+            <button class="reset-btn" id="resetBtn">🔄 Reset Form</button>
+        </div>
     </div>
 
     <div class="contact-list">
